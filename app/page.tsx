@@ -1,95 +1,55 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import { fetchUserData } from "./FetchUserFn";
+import { isPalindrome, flattenArray, deepClone } from "./Fns";
+
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  // Check if the word is a palindrome
+  console.log(isPalindrome("race a car"));
+  console.log(isPalindrome("A man a plan a canal Panama"));
+  console.log(isPalindrome("Was it a car or a cat I saw"));
+  console.log(isPalindrome("No lemon no melon"));
+
+  // Check if the array is flattened
+  console.log(flattenArray([[1, 2], [3, 4], [5, 6]]));
+  console.log(flattenArray(['a', ['b', 'c'], ['d', ['e', 'f', ['g']]], 'h']));
+  console.log(flattenArray([1, [2], [3, [4, [5]]], 6]));
+
+  // Check if the object is cloned
+  const originalObj = {
+    name: "John",
+    age: 30,
+    city: "New York",
+    hobbies: ["reading", "traveling", "cooking"],
+    address: {
+      street: "123 Main St",
+      zip: "10001"
+    }
+  };
+  const clonedObj = deepClone(originalObj);
+  clonedObj.hobbies.push("gaming");
+  clonedObj.age = 34;
+
+  console.log(originalObj)
+  console.log(clonedObj);
+  
+// Example usage
+  const userIds = [1, 2, 3, 4, 5];
+  fetchUserData(userIds);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('Button Clicked: ', event.currentTarget.innerText);
+  }
+
+  return (
+    <div >
+      <h1>Hello World..</h1>
+      <button onClick={handleClick}> Button 1 </button>
+      <button onClick={handleClick}> Button 2 </button>
+      <button onClick={handleClick}> Button 3 </button>
+      <button onClick={handleClick}> Button 4 </button>
+
     </div>
   );
 }
