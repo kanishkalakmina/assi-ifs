@@ -9,6 +9,10 @@ export const fetchUserData = async (userIds: number[]) => {
         });
 
         const users = await Promise.all(userPromises);
+        if (users.length === 0) {
+            console.log("No users found");
+            return;
+        }
         console.log("All users fetched:", users);
     } catch (err) {
         console.error("Error fetching users", err);
