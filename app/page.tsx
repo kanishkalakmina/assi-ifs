@@ -41,15 +41,13 @@ export default function Home() {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     console.log('Button Clicked: ', event.currentTarget.innerText);
   }
-
-  return (
-    <div >
-      <h1>Hello World..</h1>
-      <button onClick={handleClick}> Button 1 </button>
-      <button onClick={handleClick}> Button 2 </button>
-      <button onClick={handleClick}> Button 3 </button>
-      <button onClick={handleClick}> Button 4 </button>
-
-    </div>
-  );
+return (
+  <div>
+    <h1>Hello World..</h1>
+    <button onClick={handleClick}> Button 1 </button>
+    <button onClick={handleClick}> Button 2 </button>
+    <button onClick={handleClick}> Button 3 </button>
+    <button onClick={handleClick}> Button 4 </button>
+  </div>
+);
 }
